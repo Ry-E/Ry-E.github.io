@@ -50,7 +50,7 @@ class Sketch extends React.Component {
 
 		p.draw = () => {
 			p.background(20);
-			//lines();
+			lines();
 			windowResized();
 			p.noStroke();
 			p.textSize(32);
