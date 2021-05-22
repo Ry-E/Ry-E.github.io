@@ -8,17 +8,7 @@ class Sketch extends React.Component {
 	}
 
 	Sketch = p => {
-		p.setup = () => {
-			var canvas = p.createCanvas(
-				p.windowWidth / 2,
-				p.windowHeight
-				//p.WEBGL
-			);
-			let para = p.createP(
-				'Hello, my name is Ryan, I am a web developer'
-			);
-			para.position(p.windowWidth / 2, p.windowHeight / 2);
-		};
+		let canvas;
 
 		let lines = function () {
 			let x1 = 0;
@@ -48,8 +38,21 @@ class Sketch extends React.Component {
 			}
 		};
 
+		p.setup = () => {
+			canvas = p.createCanvas(
+				p.windowWidth / 2,
+				p.windowHeight
+				//p.WEBGL
+			);
+
+			let para = p.createP(
+				'Hello, my name is Ryan, I am a web developer'
+			);
+			para.position(p.windowWidth / 2, p.windowHeight / 2);
+		};
+
 		p.draw = () => {
-			p.background(20);
+			p.clear();
 			lines();
 			windowResized();
 			p.noStroke();
@@ -57,7 +60,17 @@ class Sketch extends React.Component {
 			p.fill(255);
 			p.textAlign(p.CENTER, p.CENTER);
 			p.text('I am a developer', p.canvas.width / 2, p.canvas.height / 2);
-			p.text(p.frameRate(), p.canvas.width / 2, p.canvas.height / 1.5);
+			setInterval(
+				p.text(
+					`Frame Rate: ${Math.round(p.frameRate())}`,
+					p.canvas.width / 2,
+					p.canvas.height / 1.5
+				),
+				10000
+			);
+			// if (p.text.p.mousePressed) {
+			// 	lines();
+			// }
 		};
 
 		let pw = p.windowWidth;
