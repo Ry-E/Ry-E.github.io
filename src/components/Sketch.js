@@ -1,5 +1,5 @@
 import React from 'react';
-import p5 from 'p5';
+import p5, { Color } from 'p5';
 
 class Sketch extends React.Component {
 	constructor(props) {
@@ -49,6 +49,10 @@ class Sketch extends React.Component {
 				'Hello, my name is Ryan, I am a web developer'
 			);
 			para.position(p.windowWidth / 2, p.windowHeight / 2);
+			para.style('background-color', 'white');
+			para.style('color', 'black');
+			para.style('padding', '20px');
+			para.style('justify', 'center');
 		};
 
 		p.draw = () => {
@@ -78,12 +82,16 @@ class Sketch extends React.Component {
 
 		function windowResized() {
 			if (p.windowWidth !== pw) {
-				p.resizeCanvas(p.windowWidth / 2, p.windowHeight);
+				updateCanvas();
 				pw = p.windowWidth;
 			} else if (p.windowHeight !== ph) {
-				p.resizeCanvas(p.windowWidth / 2, p.windowHeight);
+				updateCanvas();
 				ph = p.windowHeight;
 			}
+		}
+
+		function updateCanvas() {
+			p.resizeCanvas(p.windowWidth / 2, p.windowHeight);
 		}
 	};
 

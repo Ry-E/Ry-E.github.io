@@ -1,0 +1,7 @@
+.landing__view {
+	background-image: url('../assets/Coastal_Ireland.JPG');
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
