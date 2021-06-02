@@ -1,0 +1,24 @@
+.portfolio {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 200px;
+	margin-bottom: 200px;
+}
+.portfolio__card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 40px;
+}
+
+.portfolio__card h1 {
+	padding: 20px;
+}
+
+.portfolio__card a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

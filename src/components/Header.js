@@ -5,6 +5,7 @@ function Header() {
 	return (
 		<div className="header">
 			<a href="#">Portfolio</a>
+			<div>|</div>
 			<a href="#">Blog</a>
 		</div>
 	);

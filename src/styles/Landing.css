@@ -1,20 +1,62 @@
+:root {
+	--primary: rgba(124, 133, 133, 0.39);
+	--font: rgb(235, 232, 232);
+	--secondary: rgb(106, 180, 56);
+	--secondaryAlpha: rgba(106, 180, 56, 0.5);
+}
+
 .landing__container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 	width: 100%;
 	height: 100vh;
-	font-family: Helvetica, 'Times New Roman', Times, serif;
 	font-weight: bold;
-	color: rgb(235, 232, 232);
+	color: var(--font);
 }
 
-h1 {
-	font-size: 70pt;
-	background-color: rgba(124, 133, 133, 0.39);
-	width: fit-content;
+.nameBox {
+	background-color: var(--secondaryAlpha);
 	border-radius: 10px;
 	padding: 20px;
+	width: auto;
 	margin-bottom: 80px;
+}
+
+.nameBox h1 {
+	font-size: 70pt;
+	opacity: 1;
+	color: var(--font);
+}
+
+h2 {
+	display: flex;
+	font-size: 25pt;
+	justify-content: center;
+}
+
+.contact__info {
+	/* display: flex; */
+	justify-content: space-between;
+	/* align-items: center; */
+	width: 50%;
+	height: 20px;
+	padding: 20px;
+	margin-top: 40px;
+}
+
+.contact__info a,
+h3 {
+	font-weight: bold;
+	color: var(--font);
+	padding: 10px;
+	text-decoration: none;
+}
+
+.contact__info a:hover,
+h3:hover {
+	border-radius: 10px;
+	color: var(--secondary);
 }
