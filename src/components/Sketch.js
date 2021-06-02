@@ -13,12 +13,16 @@ class Sketch extends React.Component {
 
 		p.setup = () => {
 			canvas = p.createCanvas(
-				p.windowWidth / 2,
-				p.windowHeight
+				p.windowWidth / 1.1,
+				p.windowHeight / 4
 				//p.WEBGL
 			);
 
-			canvas.position(0, p.windowHeight);
+			canvas.position(
+				p.windowWidth / 22,
+				p.windowHeight + p.windowHeight / 1.8
+			);
+			canvas.style('z-index', '-1');
 
 			card = p.select('.portfolio__card');
 

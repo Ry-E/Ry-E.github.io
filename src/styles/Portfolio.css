@@ -1,3 +1,10 @@
+:root {
+	--primary: rgba(124, 133, 133, 0.39);
+	--font: rgb(235, 232, 232);
+	--secondary: rgb(106, 180, 56);
+	--secondaryAlpha: rgba(106, 180, 56, 0.5);
+}
+
 .portfolio {
 	display: flex;
 	flex-direction: column;
@@ -14,7 +21,11 @@
 }
 
 .portfolio__card h1 {
-	padding: 20px;
+	padding: 10px;
+
+	border-radius: 10px;
+	margin-bottom: 20px;
+	color: var(--secondary);
 }
 
 .portfolio__card a {
