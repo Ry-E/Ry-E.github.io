@@ -9,7 +9,11 @@ function Portfolio() {
 			<Sketch />
 			<div className="portfolio__card">
 				<h1>Robinhood Clone</h1>
-				<a href="https://ryaneldon.js.org/Robinhood" target="_blank">
+				<a
+					href="https://ryaneldon.js.org/Robinhood"
+					target="_blank"
+					rel="noreferrer"
+				>
 					<img
 						src={robinhood}
 						alt="The Robinhood trading web UI"

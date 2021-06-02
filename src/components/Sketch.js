@@ -1,5 +1,5 @@
 import React from 'react';
-import p5 from 'p5';
+import p5, { DOM } from 'p5';
 
 class Sketch extends React.Component {
 	constructor(props) {
@@ -9,6 +9,7 @@ class Sketch extends React.Component {
 
 	Sketch = p => {
 		let canvas;
+		let card;
 
 		p.setup = () => {
 			canvas = p.createCanvas(
@@ -16,6 +17,12 @@ class Sketch extends React.Component {
 				p.windowHeight
 				//p.WEBGL
 			);
+
+			canvas.position(0, p.windowHeight);
+
+			card = p.select('.portfolio__card');
+
+			card.position = (0, 0);
 		};
 
 		p.draw = () => {
