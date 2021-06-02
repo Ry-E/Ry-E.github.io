@@ -9,7 +9,9 @@ class Sketch extends React.Component {
 
 	Sketch = p => {
 		let canvas;
+		let para;
 		let card;
+		let robinhoodClone;
 
 		p.setup = () => {
 			canvas = p.createCanvas(
@@ -17,16 +19,17 @@ class Sketch extends React.Component {
 				p.windowHeight / 4
 				//p.WEBGL
 			);
-
 			canvas.position(
 				p.windowWidth / 22,
 				p.windowHeight + p.windowHeight / 1.8
 			);
 			canvas.style('z-index', '-1');
 
-			card = p.select('.portfolio__card');
+			robinhoodClone = p.select('.robinhoodClone');
+			robinhoodClone.mouseOver(highlight);
+			robinhoodClone.mouseOut(unhighlight);
 
-			card.position = (0, 0);
+			para = p.createSlider();
 		};
 
 		p.draw = () => {
@@ -76,6 +79,13 @@ class Sketch extends React.Component {
 			}
 		};
 
+		function highlight() {
+			this.style('opacity', '.9');
+		}
+		function unhighlight() {
+			this.style('opacity', '1');
+		}
+
 		// Update canvas size on window size change
 		let pw = p.windowWidth;
 		let ph = p.windowHeight;
@@ -91,7 +101,7 @@ class Sketch extends React.Component {
 		}
 
 		function updateCanvas() {
-			p.resizeCanvas(p.windowWidth / 2, p.windowHeight);
+			p.resizeCanvas(p.windowWidth / 1.1, p.windowHeight / 4);
 		}
 	};
 

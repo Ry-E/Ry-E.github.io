@@ -15,8 +15,9 @@ function Portfolio() {
 					rel="noreferrer"
 				>
 					<img
+						className="robinhoodClone"
 						src={robinhood}
-						alt="The Robinhood trading web UI"
+						alt="A visual clone of the Robinhood trading web UI"
 						width="50%"
 						height="50%"
 					/>
