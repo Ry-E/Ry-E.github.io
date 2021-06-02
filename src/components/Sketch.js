@@ -12,6 +12,7 @@ class Sketch extends React.Component {
 		let para;
 		let card;
 		let robinhoodClone;
+		let frameRate;
 
 		p.setup = () => {
 			canvas = p.createCanvas(
@@ -28,26 +29,19 @@ class Sketch extends React.Component {
 			robinhoodClone = p.select('.robinhoodClone');
 			robinhoodClone.mouseOver(highlight);
 			robinhoodClone.mouseOut(unhighlight);
+			//robinhoodClone.p.rotate(p.PI);
 
-			para = p.createSlider();
+			frameRate = setInterval(getFrameRate, 10000);
 		};
 
 		p.draw = () => {
 			p.clear();
 			lines();
 			windowResized();
-			p.noStroke();
-			p.textSize(32);
-			p.fill(255);
-			p.textAlign(p.CENTER, p.CENTER);
-			setInterval(
-				p.text(
-					`Frame Rate: ${Math.round(p.frameRate())}`,
-					p.canvas.width / 2,
-					p.canvas.height / 1.5
-				),
-				10000
-			);
+		};
+
+		let getFrameRate = function () {
+			console.log(`Frame Rate: ${Math.round(p.frameRate())}`);
 		};
 
 		// Creates ines that respond to mouse movements
@@ -80,10 +74,12 @@ class Sketch extends React.Component {
 		};
 
 		function highlight() {
-			this.style('opacity', '.9');
+			this.style('transform', 'scale(1.03)');
+			this.style('box-shadow', '20px 10px 20px black');
 		}
 		function unhighlight() {
-			this.style('opacity', '1');
+			this.style('transform', 'scale(1)');
+			this.style('box-shadow', 'none');
 		}
 
 		// Update canvas size on window size change
