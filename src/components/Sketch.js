@@ -20,15 +20,17 @@ class Sketch extends React.Component {
 				p.windowHeight / 4
 				//p.WEBGL
 			);
-			canvas.position(
-				p.windowWidth / 22,
-				p.windowHeight + p.windowHeight / 1.8
-			);
-			canvas.style('z-index', '-1');
+			// canvas.position(
+			// 	p.windowWidth / 22,
+			// 	p.windowHeight + p.windowHeight / 1.8
+			// );
+
+			// canvas.child('.portfolio');
 
 			robinhoodClone = p.select('.robinhoodClone');
 			robinhoodClone.mouseOver(highlight);
 			robinhoodClone.mouseOut(unhighlight);
+			robinhoodClone.style('z-index', '0');
 			//robinhoodClone.p.rotate(p.PI);
 
 			frameRate = setInterval(getFrameRate, 10000);
@@ -38,6 +40,7 @@ class Sketch extends React.Component {
 			p.clear();
 			lines();
 			windowResized();
+			canvas.style('z-index', '-1');
 		};
 
 		let getFrameRate = function () {
@@ -75,7 +78,7 @@ class Sketch extends React.Component {
 
 		function highlight() {
 			this.style('transform', 'scale(1.03)');
-			this.style('box-shadow', '20px 10px 20px black');
+			this.style('box-shadow', '20px 10px 30px green');
 		}
 		function unhighlight() {
 			this.style('transform', 'scale(1)');
