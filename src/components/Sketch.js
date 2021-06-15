@@ -1,5 +1,5 @@
 import React from 'react';
-import p5, { DOM } from 'p5';
+import p5 from 'p5';
 
 class Sketch extends React.Component {
 	constructor(props) {
@@ -9,9 +9,8 @@ class Sketch extends React.Component {
 
 	Sketch = p => {
 		let canvas;
-		let para;
-		let card;
 		let robinhoodClone;
+		let videography;
 		let frameRate;
 
 		p.setup = () => {
@@ -27,11 +26,15 @@ class Sketch extends React.Component {
 
 			// canvas.child('.portfolio');
 
-			robinhoodClone = p.select('.robinhoodClone');
-			robinhoodClone.mouseOver(highlight);
-			robinhoodClone.mouseOut(unhighlight);
-			robinhoodClone.style('z-index', '0');
+			//robinhoodClone = p.select('.robinhoodClone');
+			// robinhoodClone.mouseOver(highlight);
+			// robinhoodClone.mouseOut(unhighlight);
 			//robinhoodClone.p.rotate(p.PI);
+
+			//videography = p.select('.videography');
+			// videography.hover(highlight, unhighlight);
+			// videography.mouseOver(highlight);
+			// videography.mouseOut(unhighlight);
 
 			frameRate = setInterval(getFrameRate, 10000);
 		};
@@ -76,9 +79,9 @@ class Sketch extends React.Component {
 			}
 		};
 
-		function highlight() {
+		function highlight(color) {
 			this.style('transform', 'scale(1.03)');
-			this.style('box-shadow', '20px 10px 30px green');
+			this.style('box-shadow', '20px 10px 30px ' + color);
 		}
 		function unhighlight() {
 			this.style('transform', 'scale(1)');

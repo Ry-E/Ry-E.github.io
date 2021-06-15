@@ -41,8 +41,18 @@
 	grid-row-start: 1;
 }
 
-.portfolio__project a {
-	display: flex;
-	flex-direction: column;
+.portfolio__project {
+	display: grid;
+	width: 70%;
+	height: auto;
 	align-items: center;
+}
+
+.portfolio__sketch {
+	z-index: -1;
+}
+
+.portfolio__project img:hover {
+	box-shadow: 20px 10px 30px blueviolet;
+	transform: scale(1.01);
 }
