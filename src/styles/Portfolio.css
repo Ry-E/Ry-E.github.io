@@ -53,6 +53,13 @@
 }
 
 .portfolio__project img:hover {
-	box-shadow: 20px 10px 30px blueviolet;
 	transform: scale(1.01);
+}
+
+.robinhoodClone:hover {
+	box-shadow: 20px 10px 30px green;
+}
+
+.videography:hover {
+	box-shadow: 20px 10px 30px blue;
 }
