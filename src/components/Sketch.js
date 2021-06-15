@@ -9,8 +9,8 @@ class Sketch extends React.Component {
 
 	Sketch = p => {
 		let canvas;
-		let robinhoodClone;
-		let videography;
+		// let robinhoodClone;
+		// let videography;
 		let frameRate;
 
 		p.setup = () => {
@@ -19,22 +19,10 @@ class Sketch extends React.Component {
 				p.windowHeight / 4
 				//p.WEBGL
 			);
-			// canvas.position(
-			// 	p.windowWidth / 22,
-			// 	p.windowHeight + p.windowHeight / 1.8
-			// );
-
-			// canvas.child('.portfolio');
 
 			//robinhoodClone = p.select('.robinhoodClone');
-			// robinhoodClone.mouseOver(highlight);
-			// robinhoodClone.mouseOut(unhighlight);
-			//robinhoodClone.p.rotate(p.PI);
 
 			//videography = p.select('.videography');
-			// videography.hover(highlight, unhighlight);
-			// videography.mouseOver(highlight);
-			// videography.mouseOut(unhighlight);
 
 			frameRate = setInterval(getFrameRate, 10000);
 		};
@@ -78,15 +66,6 @@ class Sketch extends React.Component {
 				y4 += spacer;
 			}
 		};
-
-		function highlight(color) {
-			this.style('transform', 'scale(1.03)');
-			this.style('box-shadow', '20px 10px 30px ' + color);
-		}
-		function unhighlight() {
-			this.style('transform', 'scale(1)');
-			this.style('box-shadow', 'none');
-		}
 
 		// Update canvas size on window size change
 		let pw = p.windowWidth;
