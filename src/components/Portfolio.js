@@ -3,6 +3,8 @@ import Sketch from './Sketch';
 import '../styles/Portfolio.css';
 import robinhood from '../assets/robinhood-clone.png';
 import videography from '../assets/videography-portfolio.png';
+import nucampsite from '../assets/nucampsite_project.png';
+
 
 function Portfolio() {
 	return (
@@ -46,6 +48,29 @@ function Portfolio() {
 								className="videography"
 								src={videography}
 								alt="A screenshot of my web development portfolio"
+								width="100%"
+								height="100%"
+							/>
+						</a>
+					</div>
+				</div>
+            </div>
+            <div className="portfolio__card">
+				<h1>Nucampsite</h1>
+				<div className="portfolio__body">
+					<div className="portfolio__sketch">
+						<Sketch />
+					</div>
+					<div className="portfolio__project">
+						<a
+							href="http://3.133.161.173/home"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img
+								className="nucampsite"
+								src={nucampsite}
+								alt="A simple and modern web design"
 								width="100%"
 								height="100%"
 							/>
