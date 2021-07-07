@@ -10,10 +10,17 @@ function Landing() {
 			<h2>Web and App Development Portfolio</h2>
 			<div className="contact__info">
 				<h3>ryaneldon24@gmail.com</h3>
-				<a href="https://github.com/Ry-E">Github</a>
-				<a href="https://www.linkedin.com/in/ryan-eldon-837074110/">
-					LinkedIn{' '}
-				</a>
+				<div className="links">
+					<a id="black" href="https://github.com/Ry-E">
+						Github
+					</a>
+					<a
+						id="white"
+						href="https://www.linkedin.com/in/ryan-eldon-837074110/"
+					>
+						LinkedIn{' '}
+					</a>
+				</div>
 			</div>
 		</div>
 	);

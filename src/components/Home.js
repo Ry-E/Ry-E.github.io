@@ -8,7 +8,7 @@ function Home() {
 	return (
 		<div className="home__page">
 			<div className="landing__view">
-				<Header />
+				{/* <Header /> */}
 				<Landing />
 			</div>
 			<div className="portfolio__view">

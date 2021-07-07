@@ -18,7 +18,6 @@
 }
 
 .nameBox {
-	background-color: var(--secondaryAlpha);
 	border-radius: 10px;
 	padding: 20px;
 	width: auto;
@@ -38,25 +37,37 @@ h2 {
 }
 
 .contact__info {
-	/* display: flex; */
-	justify-content: space-between;
-	/* align-items: center; */
 	width: 50%;
-	height: 20px;
 	padding: 20px;
-	margin-top: 40px;
+	margin-top: 60px;
 }
 
-.contact__info a,
-h3 {
-	font-weight: bold;
+#black {
+	background-color: rgba(30, 31, 29, 0.8);
 	color: var(--font);
-	padding: 10px;
+}
+
+#white {
+	background-color: rgba(235, 232, 232, 0.8);
+	color: rgb(30, 31, 29);
+}
+
+.contact__info a {
+	border-radius: 20px;
+	justify-content: space-between;
+	padding: 10px 60px 10px 60px;
 	text-decoration: none;
 }
 
-.contact__info a:hover,
-h3:hover {
-	border-radius: 10px;
-	color: var(--secondary);
+.links {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+}
+
+.contact__info h3 {
+	font-weight: bold;
+	color: var(--font);
+	padding: 10px;
+	margin-bottom: 40px;
 }
