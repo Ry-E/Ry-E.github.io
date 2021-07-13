@@ -1,83 +1,35 @@
 import React from 'react';
 import Sketch from './Sketch';
+import Project from './Project';
 import '../styles/Portfolio.css';
 import robinhood from '../assets/robinhood-clone.png';
 import videography from '../assets/videography-portfolio.png';
 import nucampsite from '../assets/nucampsite_project.png';
 
-
 function Portfolio() {
 	return (
 		<div className="portfolio">
-			<div className="portfolio__card">
-				<h1>Robinhood Clone</h1>
-				<div className="portfolio__body">
-					<div className="portfolio__sketch">
-						<Sketch />
-					</div>
-					<div className="portfolio__project">
-						<a
-							href="https://ryaneldon.js.org/Robinhood"
-							target="_blank"
-							rel="noreferrer"
-						>
-							<img
-								className="robinhoodClone"
-								src={robinhood}
-								alt="A visual clone of the Robinhood trading web UI"
-								width="100%"
-								height="100%"
-							/>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div className="portfolio__card">
-				<h1>Videography Portfolio</h1>
-				<div className="portfolio__body">
-					<div className="portfolio__sketch">
-						<Sketch />
-					</div>
-					<div className="portfolio__project">
-						<a
-							href="https://ryaneldon.js.org/Videography-Portfolio"
-							target="_blank"
-							rel="noreferrer"
-						>
-							<img
-								className="videography"
-								src={videography}
-								alt="A screenshot of my web development portfolio"
-								width="100%"
-								height="100%"
-							/>
-						</a>
-					</div>
-				</div>
-            </div>
-            <div className="portfolio__card">
-				<h1>Nucampsite</h1>
-				<div className="portfolio__body">
-					<div className="portfolio__sketch">
-						<Sketch />
-					</div>
-					<div className="portfolio__project">
-						<a
-							href="http://3.133.161.173/home"
-							target="_blank"
-							rel="noreferrer"
-						>
-							<img
-								className="nucampsite"
-								src={nucampsite}
-								alt="A simple and modern web design"
-								width="100%"
-								height="100%"
-							/>
-						</a>
-					</div>
-				</div>
-			</div>
+			<Project
+				name="Robinhood Clone"
+				url="https://ryaneldon.js.org/Robinhood"
+				imgClass="robinhoodClone"
+				img={robinhood}
+				alt="A visual clone of the Robinhood trading web UI"
+			/>
+			<Project
+				name="Videography Portfolio"
+				url="https://ryaneldon.js.org/Videography-Portfolio"
+				imgClass="videography"
+				img={videography}
+				alt="A screenshot of my web development portfolio"
+			/>
+			<Project
+				name="Nucampsite"
+				url="http://3.133.161.173/home"
+				imgClass="nucampsite"
+				img={nucampsite}
+				alt="A simple and modern web design"
+			/>
 		</div>
 	);
 }
