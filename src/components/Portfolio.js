@@ -25,7 +25,7 @@ function Portfolio() {
 			/>
 			<Project
 				name="Nucampsite"
-				url="http://3.133.161.173/home"
+				url="http://3.133.161.173"
 				imgClass="nucampsite"
 				img={nucampsite}
 				alt="A simple and modern web design"
