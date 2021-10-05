@@ -5,7 +5,7 @@ import '../styles/Portfolio.css';
 import robinhood from '../assets/robinhood-clone.png';
 import videography from '../assets/videography-portfolio.png';
 import nucampsite from '../assets/nucampsite_project.png';
-import SarahLizFitness from '..assets/sarahlizFitness.png';
+import SarahLizFitness from '../assets/sarahlizFitness.png';
 
 function Portfolio() {
 	return (
