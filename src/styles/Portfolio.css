@@ -68,6 +68,6 @@
 	box-shadow: 20px 10px 30px purple;
 }
 
-.sarahLizFitness {
-	box-shadow: 20px 10px 30px darksalmon;
+.sarahLizFitness:hover {
+	box-shadow: 20px 10px 30px aquamarine;
 }
