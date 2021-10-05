@@ -5,7 +5,7 @@ import '../styles/Portfolio.css';
 import robinhood from '../assets/robinhood-clone.png';
 import videography from '../assets/videography-portfolio.png';
 import nucampsite from '../assets/nucampsite_project.png';
-import SarahLizFitness from '../assets/sarahlizFitness.png';
+import sarahliz_Fitness from '../assets/sarahliz_fitness.png';
 
 function Portfolio() {
 	return (
@@ -14,7 +14,7 @@ function Portfolio() {
 				name="SarahLiz Fitness Website"
 				url="https://sarahlizfitness.herokuapp.com/"
 				imgClass="sarahLizFitness"
-				img={SarahLizFitness}
+				img={sarahliz_Fitness}
 				alt="A clean looking website for a personal trainer"
 			/>
 			<Project
