@@ -5,10 +5,18 @@ import '../styles/Portfolio.css';
 import robinhood from '../assets/robinhood-clone.png';
 import videography from '../assets/videography-portfolio.png';
 import nucampsite from '../assets/nucampsite_project.png';
+import SarahLizFitness from '..assets/sarahlizFitness.png';
 
 function Portfolio() {
 	return (
 		<div className="portfolio">
+			<Project
+				name="SarahLiz Fitness Website"
+				url="https://sarahlizfitness.herokuapp.com/"
+				imgClass="sarahLizFitness"
+				img={SarahLizFitness}
+				alt="A clean looking website for a personal trainer"
+			/>
 			<Project
 				name="Robinhood Clone"
 				url="https://ryaneldon.js.org/Robinhood"
