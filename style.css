@@ -1,0 +1,43 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  
+
+}
+
+body {
+/*   background-image: url('Images/stars.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;  */
+/*   background: green */
+}
+
+
+canvas {
+  position: absolute;
+/*   
+  background-image: url('Images/stars.jpg');
+  background-size: cover;
+    background-repeat: no-repeat;  */
+/*    background: transparent; */
+}
+
+.stars {
+  position: absolute;
+ 
+/*     background-image: url('./assets/images/stars.jpg');
+  background-size: cover;
+    background-repeat: no-repeat;  */
+/*    background: transparent; */
+}
+
+.hey {
+  background-image: url('./assets/images/stars.jpg')
+}
+
+.bg {
+  position: absolute;
+    width: 100%;
+  height: 100%;
+}
