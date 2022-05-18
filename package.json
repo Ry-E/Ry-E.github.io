@@ -5,6 +5,7 @@
 	"main": "index.html",
 	"license": "MIT",
 	"scripts": {
-		"start": "http-server --cors"
+		"start": "http-server --cors",
+		"deploy": "gh-pages -b master "
 	}
 }
