@@ -21,126 +21,86 @@ let count = 0;
 let myFont;
 
 function preload() {
-  // sl_fitness = loadImage("Images/sarahliz_fitness.png");
-  sl_fitness = loadImage(PROJECTS[0].img);
-  robinhood_clone = loadImage(PROJECTS[1].img);
-  v_portfolio = loadImage(PROJECTS[2].img);
-  d_portfolio = loadImage(PROJECTS[3].img);
-  react_logo = loadImage(PROJECTS[0].tech1);
-  node_logo = loadImage(PROJECTS[0].tech2);
-  firebase_logo = loadImage(PROJECTS[1].tech2);
+	// sl_fitness = loadImage("Images/sarahliz_fitness.png");
+	sl_fitness = loadImage(PROJECTS[0].img);
+	robinhood_clone = loadImage(PROJECTS[1].img);
+	v_portfolio = loadImage(PROJECTS[2].img);
+	d_portfolio = loadImage(PROJECTS[3].img);
+	react_logo = loadImage(PROJECTS[0].tech1);
+	node_logo = loadImage(PROJECTS[0].tech2);
+	firebase_logo = loadImage(PROJECTS[1].tech2);
 
-  myFont = loadFont("./assets/fonts/Digital_tech.otf");
-  // exo = loadFont('assets/Exo.otf');
+	myFont = loadFont('./assets/fonts/Digital_tech.otf');
+	// exo = loadFont('assets/Exo.otf');
 }
 
 function setup() {
-  mCreateCanvas(windowWidth, windowHeight, WEBGL);
-  // canvas.position(0,0, "absolute")
-console.log(canvas.position())
-  //   //div.position(10, autoHeight);
-  // camera(0, 0, (height / 2 / tan(PI / 6)), 0, 0, 0, -0.5, 1, 0);
-  mCamera(0, 0, 4500, 0, 0, 0, -0.5, 1, 0);
-  // camera = createCamera();
+	mCreateCanvas(windowWidth, windowHeight, WEBGL);
+	mCamera(0, 0, 4500, 0, 0, 0, -0.5, 1, 0);
 
-  //   var options = {
-  //     preventDefault: true,
-  //   };
+	//   var options = {
+	//     preventDefault: true,
+	//   };
 
-  //   let hammer = new Hammer(document.body, options);
-  //   hammer.get("swipe").set({
-  //     direction: Hammer.DIRECTION_ALL,
-  //   });
+	//   let hammer = new Hammer(document.body, options);
+	//   hammer.get("swipe").set({
+	//     direction: Hammer.DIRECTION_ALL,
+	//   });
 
-  // hammer.on("swipeup swipedown", swiped);
+	// hammer.on("swipeup swipedown", swiped);
 
-  // let backg = canvas.elt.getContext("webgl").texImage2D;
-  sarahLizFitness = new Project(PROJECTS[0], sl_fitness);
+	// let backg = canvas.elt.getContext("webgl").texImage2D;
+	sarahLizFitness = new Project(PROJECTS[0], sl_fitness);
 
-  robinhoodClone = new Project(PROJECTS[1], robinhood_clone);
-  videoPortfolio = new Project(PROJECTS[2], v_portfolio);
-  developerPortfolio = new Project(PROJECTS[3], d_portfolio);
+	robinhoodClone = new Project(PROJECTS[1], robinhood_clone);
+	videoPortfolio = new Project(PROJECTS[2], v_portfolio);
+	developerPortfolio = new Project(PROJECTS[3], d_portfolio);
 
-  // console.log(backg)
+	// console.log(backg)
 
-  projects.push(
-    sarahLizFitness,
-    robinhoodClone,
-    videoPortfolio,
-    developerPortfolio
-  );
+	projects.push(
+		sarahLizFitness,
+		robinhoodClone,
+		videoPortfolio,
+		developerPortfolio
+	);
 
-  // let burst = map(speed,0,10,)
+	// let burst = map(speed,0,10,)
 
-  // starG.show()
+	// starG.show()
 }
 
 function draw() {
-  // background(test)
-  mBackground(0, 0, 200, 10);
-  
-//   push()
-//   // translate(width / 2, height / 2);
-//   for (let star of stars) {
-//     star.update();
-//     star.show();
-//   }
+	mBackground(0, 0, 200, 10);
+	mReset();
 
-//   rotateZ(-9)
-//   image(starG, 0, 0, windowWidth*5, windowHeight*5);
-  
-//   pop()
-  // stars.width = width;
-  // stars.height = height;
-  // stars.resize(width, height)
-  // backg.background(stars)
-  // mResetMatrix();
-  mReset();
-  // increases depth of view
-  let eyeZ = height / 2 / tan(PI / 6);
-  mPerspective(PI / 3, width / height, eyeZ / 10, 10000);
+	// increases depth of view
+	let eyeZ = height / 2 / tan(PI / 6);
+	mPerspective(PI / 3, width / height, eyeZ / 10, 10000);
 
-  // angleMode(DEGREES);
+	mRotateY(scroll);
 
-  //   count = count + d;
-  //   if (count == 93 || count == -93) {
-  //     d = 0;
-  //   }
+	//messing around with lighting
+	// let dirX = (mouseX / width - 0.5) * 2;
+	// let dirY = (mouseY / height - 0.5) * 2;
+	// ambientLight(mouseX, mouseY, 255)
+	// directionalLight(250, 0, 250, -dirX, -dirY, -1);
+	// mLights();
 
-  //   scroll = scroll + d;
-  mRotateY(scroll);
+	// Adds projects to orbit and
+	//  assign object id based on own index in array
+	for (let project of projects) {
+		// console.log(project.name)
+		project.show(project.id);
+	}
 
-  // mAngleMode(RADIANS);
-
-  //messing around with lighting
-  // let dirX = (mouseX / width - 0.5) * 2;
-  // let dirY = (mouseY / height - 0.5) * 2;
-  // ambientLight(mouseX, mouseY, 255)
-  // directionalLight(250, 0, 250, -dirX, -dirY, -1);
-  // mLights();
-
-  // Adds projects to orbit and
-  //  assign object id based on own index in array
-  for (let project of projects) {
-    // console.log(project.name)
-    project.show(project.id);
-  }
-
-  // for (let project of PROJECTS) {
-  //   project.show(project.id)
-  //   // console.log(project.id)
-  // }
-
-  //rainbow
-  //   push();
-  //   normalMaterial();
-  //   translate(0, 0, -4000);
-  //   // rotateY(millis() / 200);
-  //   sphere((height + width / 4) / 8, 25, 25);
-  //   pop();
-
-  
-  
+	//rainbow
+	//   push();
+	//   normalMaterial();
+	//   translate(0, 0, -4000);
+	//   // rotateY(millis() / 200);
+	//   sphere((height + width / 4) / 8, 25, 25);
+	//   pop();
 }
 
 // function mouseWheel(event) {
@@ -150,10 +110,10 @@ function draw() {
 // }
 
 function mouseDragged(event) {
-  // print(event.movementY/100)
-  scroll += event.movementY / 480;
-  speed = map(event.movementY, -50, 50, -40, 40, true);
-  // scroll += 0.02
+	// print(event.movementY/100)
+	scroll += event.movementY / 480;
+	speed = map(event.movementY, -50, 50, -40, 40, true);
+	// scroll += 0.02
 }
 
 // function mousePressed() {
@@ -202,32 +162,22 @@ function mouseDragged(event) {
 // }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-  // info.position(xOffset, windowHeight - (dHeight + yOffset));
+	resizeCanvas(windowWidth, windowHeight);
+	// info.position(xOffset, windowHeight - (dHeight + yOffset));
 }
 function mouseClicked() {
-  switch (objectAtMouse()) {
-    case 1:
-      window.open("https://github.com/Ry-E/SarahLiz-Fitness", "_blank");
-      break;
-    case 2:
-      window.open("https://github.com/Ry-E/Robinhood", "_blank");
-      break;
-    case 3:
-      window.open("https://github.com/Ry-E/Videography-Portfolio", "_blank");
-      break;
-  }
+	switch (objectAtMouse()) {
+		case 1:
+			window.open('https://github.com/Ry-E/SarahLiz-Fitness', '_blank');
+			break;
+		case 2:
+			window.open('https://github.com/Ry-E/Robinhood', '_blank');
+			break;
+		case 3:
+			window.open(
+				'https://github.com/Ry-E/Videography-Portfolio',
+				'_blank'
+			);
+			break;
+	}
 }
-
-// function swiped(event) {
-//   if (d == 0) {
-//     count = 0;
-//     if (event.type == "swipeup") {
-//       d = d + 3;
-//     } else if (event.type == "swipedown") {
-//       d = d - 3;
-//     }
-//   } else {
-//     // return false;
-//   }
-// }
