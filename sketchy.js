@@ -65,17 +65,32 @@ let s = sketch => {
 	// }
 
 	sketch.mouseWheel = event => {
+		// change orbit scroll speed based on scroll event speed
 		scroll += event.delta / 2400;
+		// map star speed to scroll event speed
 		speed = map(event.delta, -200, 200, -50, 50, true);
-		if (speed > 45) {
-			for (let star of stars) {
+
+		// change star color based on star speed
+		for (let star of stars) {
+			if (speed > 45) {
 				star.changeColor();
-			}
-		} else {
-			for (let star of stars) {
+			} else if (speed < -45) {
+				star.changeColor();
+			} else {
 				star.resetColor();
 			}
 		}
+
+		// for (let star of stars) {
+		// 	star.pz = map(
+		// 		Math.floor(event.delta),
+		// 		-10,
+		// 		10,
+		// 		star.z,
+		// 		star.z + 50,
+		// 		true
+		// 	);
+		// }
 	};
 
 	sketch.windowResized = () => {
