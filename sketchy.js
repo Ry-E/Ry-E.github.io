@@ -64,10 +64,10 @@ let s = sketch => {
 	//     }, 35);
 	// }
 
-	sketch.mouseWheel = () => {
+	sketch.mouseWheel = event => {
 		scroll += event.delta / 2400;
 		speed = map(event.delta, -200, 200, -50, 50, true);
-		if (speed > 23) {
+		if (speed > 45) {
 			for (let star of stars) {
 				star.changeColor();
 			}
