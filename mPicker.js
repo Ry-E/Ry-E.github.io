@@ -50,11 +50,11 @@ let canvas;
  * Its parameters are identical to those for createCanvas().
  */
 function mCreateCanvas() {
-  canvas = createCanvas(...[...arguments]);
-  pixelDensity(1);
-  mPage = createGraphics(width, height, WEBGL);
-  mPage.pixelDensity(1);
-  // mPage.show();
+	canvas = createCanvas(...[...arguments]);
+	pixelDensity(1);
+	mPage = createGraphics(width, height, WEBGL);
+	mPage.pixelDensity(1);
+	// mPage.show();
 }
 
 /**
@@ -67,15 +67,16 @@ function mCreateCanvas() {
  *                  Returns 0 if no object present.
  */
 function getObjectID(mx, my) {
-  if (mx > width || my > height || mx < 0 || my < 0) {
-    return 0;
-  }
-  var gl = mPage.elt.getContext("webgl");
-  var pix = getPixels();
-  var index = 4 * ((gl.drawingBufferHeight - my) * gl.drawingBufferWidth + mx);
+	if (mx > width || my > height || mx < 0 || my < 0) {
+		return 0;
+	}
+	var gl = mPage.elt.getContext('webgl');
+	var pix = getPixels();
+	var index =
+		4 * ((gl.drawingBufferHeight - my) * gl.drawingBufferWidth + mx);
 
-  console.log("Red Value:", pix[index]);
-  return pix[index];
+	console.log('Red Value:', pix[index]);
+	return pix[index];
 }
 
 /**
@@ -85,22 +86,22 @@ function getObjectID(mx, my) {
  * @return {Array} pixel color values of canvas
  */
 function getPixels() {
-  var gl = mPage.elt.getContext("webgl");
-  var pixels = new Uint8Array(
-    gl.drawingBufferWidth * gl.drawingBufferHeight * 4
-  );
-  gl.readPixels(
-    0,
-    0,
-    gl.drawingBufferWidth,
-    gl.drawingBufferHeight,
-    gl.RGBA,
-    gl.UNSIGNED_BYTE,
-    pixels
-  );
+	var gl = mPage.elt.getContext('webgl');
+	var pixels = new Uint8Array(
+		gl.drawingBufferWidth * gl.drawingBufferHeight * 4
+	);
+	gl.readPixels(
+		0,
+		0,
+		gl.drawingBufferWidth,
+		gl.drawingBufferHeight,
+		gl.RGBA,
+		gl.UNSIGNED_BYTE,
+		pixels
+	);
 
-  // console.log(pixels)
-  return pixels;
+	// console.log(pixels)
+	return pixels;
 }
 
 /**
@@ -110,11 +111,10 @@ function getPixels() {
  * Following parameters are passed through to box().
  */
 function mBox(id) {
-  var passon = [...arguments].slice(1);
-  box(...passon);
-  mPage.fill(id, 0, 0);
-  mPage.box(...passon);
-
+	var passon = [...arguments].slice(1);
+	box(...passon);
+	mPage.fill(id, 0, 0);
+	mPage.box(...passon);
 }
 
 /**
@@ -124,11 +124,11 @@ function mBox(id) {
  * Following parameters are passed through to plane().
  */
 function mPlane(id) {
-  var passon = [...arguments].slice(1);
+	var passon = [...arguments].slice(1);
 
-  plane(...passon);
-  mPage.fill(id, 0, 0);
-  mPage.plane(...passon);
+	plane(...passon);
+	mPage.fill(id, 0, 0);
+	mPage.plane(...passon);
 }
 /**
  * mSphere creates a sphere primitive with an associated ID number.
@@ -137,13 +137,12 @@ function mPlane(id) {
  * Following parameters are passed through to sphere().
  */
 function mSphere(id, radius, detailX, detailY) {
-  var passon = [...arguments].slice(1);
+	var passon = [...arguments].slice(1);
 
-  sphere(...passon);
+	sphere(...passon);
 
-  mPage.fill(id, 200, 0);
-  mPage.sphere(...passon);
-  
+	mPage.fill(id, 200, 0);
+	mPage.sphere(...passon);
 }
 
 /**
@@ -153,11 +152,11 @@ function mSphere(id, radius, detailX, detailY) {
  * Following parameters are passed through to cylinder().
  */
 function mCylinder(id) {
-  var passon = [...arguments].slice(1);
+	var passon = [...arguments].slice(1);
 
-  cylinder(...passon);
-  mPage.fill(id, 0, 0);
-  mPage.cylinder(...passon);
+	cylinder(...passon);
+	mPage.fill(id, 0, 0);
+	mPage.cylinder(...passon);
 }
 
 /**
@@ -167,12 +166,12 @@ function mCylinder(id) {
  * Following parameters are passed through to cone().
  */
 function mCone(id) {
-  var passon = [...arguments].slice(1);
+	var passon = [...arguments].slice(1);
 
-  mPage.rotateX(PI);
-  cone(...passon);
-  mPage.fill(id, 0, 0);
-  mPage.cone(...passon);
+	mPage.rotateX(PI);
+	cone(...passon);
+	mPage.fill(id, 0, 0);
+	mPage.cone(...passon);
 }
 
 /**
@@ -182,11 +181,11 @@ function mCone(id) {
  * Following parameters are passed through to ellipsoid().
  */
 function mEllipsoid(id) {
-  var passon = [...arguments].slice(1);
+	var passon = [...arguments].slice(1);
 
-  ellipsoid(...passon);
-  mPage.fill(id, 0, 0);
-  mPage.ellipsoid(...passon);
+	ellipsoid(...passon);
+	mPage.fill(id, 0, 0);
+	mPage.ellipsoid(...passon);
 }
 
 /**
@@ -196,11 +195,11 @@ function mEllipsoid(id) {
  * Following parameters are passed through to torus().
  */
 function mTorus(id) {
-  var passon = [...arguments].slice(1);
+	var passon = [...arguments].slice(1);
 
-  torus(...passon);
-  mPage.fill(id, 0, 0);
-  mPage.torus(...passon);
+	torus(...passon);
+	mPage.fill(id, 0, 0);
+	mPage.torus(...passon);
 }
 
 /**
@@ -209,9 +208,8 @@ function mTorus(id) {
  * All parameters are the same as for translate().
  */
 function mTranslate() {
-  translate(...[...arguments]);
-  mPage.translate(...[...arguments]);
-  
+	translate(...[...arguments]);
+	mPage.translate(...[...arguments]);
 }
 
 /**
@@ -220,15 +218,13 @@ function mTranslate() {
  * All parameters are the same as for resetMatrix().
  */
 function mReset() {
-  // reset();
-  // mPage.reset();
-
+	// reset();
+	mPage.reset();
 }
 
 function mResetMatrix() {
-  resetMatrix();
-  mPage.resetMatrix();
- 
+	resetMatrix();
+	mPage.resetMatrix();
 }
 
 /**
@@ -237,9 +233,8 @@ function mResetMatrix() {
  * All parameters are the same as for rotateX().
  */
 function mRotateX() {
-  rotateX(...[...arguments]);
-  mPage.rotateX(...[...arguments]);
- 
+	rotateX(...[...arguments]);
+	mPage.rotateX(...[...arguments]);
 }
 
 /**
@@ -248,9 +243,8 @@ function mRotateX() {
  * All parameters are the same as for rotateY().
  */
 function mRotateY() {
-  rotateY(...[...arguments]);
-  mPage.rotateY(...[...arguments]);
-  
+	rotateY(...[...arguments]);
+	mPage.rotateY(...[...arguments]);
 }
 
 /**
@@ -259,9 +253,8 @@ function mRotateY() {
  * All parameters are the same as for rotateZ().
  */
 function mRotateZ() {
-  rotateZ(...[...arguments]);
-  mPage.rotateZ(...[...arguments]);
-  
+	rotateZ(...[...arguments]);
+	mPage.rotateZ(...[...arguments]);
 }
 
 /**
@@ -270,9 +263,8 @@ function mRotateZ() {
  * All parameters are the same as for rotate().
  */
 function mRotate() {
-  rotate(...[...arguments]);
-  mPage.rotate(...[...arguments]);
- 
+	rotate(...[...arguments]);
+	mPage.rotate(...[...arguments]);
 }
 
 /**
@@ -281,8 +273,7 @@ function mRotate() {
  * All parameters are the same as for scale().
  */
 function mScale() {
-  scale(...[...arguments]);
- 
+	scale(...[...arguments]);
 }
 
 /**
@@ -291,9 +282,8 @@ function mScale() {
  * All parameters are the same as for camera().
  */
 function mCamera() {
-  camera(...[...arguments]);
-  mPage.camera(...[...arguments]);
-  
+	camera(...[...arguments]);
+	mPage.camera(...[...arguments]);
 }
 
 /**
@@ -302,9 +292,8 @@ function mCamera() {
  * All parameters are the same as for ortho().
  */
 function mOrtho() {
-  ortho(...[...arguments]);
-  mPage.ortho(...[...arguments]);
-
+	ortho(...[...arguments]);
+	mPage.ortho(...[...arguments]);
 }
 
 /**
@@ -313,27 +302,24 @@ function mOrtho() {
  * All parameters are the same as for perspective().
  */
 function mPerspective() {
-  perspective(...[...arguments]);
-  mPage.perspective(...[...arguments]);
-  
+	perspective(...[...arguments]);
+	mPage.perspective(...[...arguments]);
 }
 
 /**
  * mPush performs the push function to both visible and hidden 3D models.
  */
 function mPush() {
-  push();
-  mPage.push();
- 
+	push();
+	mPage.push();
 }
 
 /**
  * mPop performs the pop function to both visible and hidden 3D models.
  */
 function mPop() {
-  pop();
-  mPage.pop();
-  
+	pop();
+	mPage.pop();
 }
 
 /**
@@ -343,16 +329,12 @@ function mPop() {
  * All parameters are the same as for background().
  */
 
-
-
 function mBackground() {
-  // var passon = [...arguments].slice(1);
-  // background(0, 250, 0)
-  background(...[...arguments]);
-  mPage.background(0);
-  // starG.background(0,0,0,0)
-  
-
+	// var passon = [...arguments].slice(1);
+	// background(0, 250, 0)
+	background(...[...arguments]);
+	mPage.background(0);
+	// starG.background(0,0,0,0)
 }
 
 /**
@@ -361,8 +343,7 @@ function mBackground() {
  * All parameters are the same as for texture().
  */
 function mTexture() {
-  texture(...[...arguments]);
-  
+	texture(...[...arguments]);
 }
 
 /**
@@ -371,5 +352,5 @@ function mTexture() {
  * @return {Number} ID of object nearest to camera at position of mouse.
  */
 function objectAtMouse() {
-  return getObjectID(mouseX, mouseY);
+	return getObjectID(mouseX, mouseY);
 }

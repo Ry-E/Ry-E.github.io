@@ -101,6 +101,12 @@ function draw() {
 	//   // rotateY(millis() / 200);
 	//   sphere((height + width / 4) / 8, 25, 25);
 	//   pop();
+
+	if (objectAtMouse() > 0) {
+		cursor(HAND);
+	} else {
+		cursor(ARROW);
+	}
 }
 
 // function mouseWheel(event) {

@@ -1,43 +1,48 @@
-
-html, body {
-  margin: 0;
-  padding: 0;
-  
-
+html,
+body {
+	margin: 0;
+	padding: 0;
 }
 
 body {
-/*   background-image: url('Images/stars.jpg');
+	/*   background-image: url('Images/stars.jpg');
   background-size: cover;
   background-repeat: no-repeat;  */
-/*   background: green */
+	/*   background: green */
 }
 
-
 canvas {
-  position: absolute;
-/*   
+	position: absolute;
+	/*   
   background-image: url('Images/stars.jpg');
   background-size: cover;
     background-repeat: no-repeat;  */
-/*    background: transparent; */
+	/*    background: transparent; */
 }
 
 .stars {
-  position: absolute;
- 
-/*     background-image: url('./assets/images/stars.jpg');
+	position: absolute;
+
+	/*     background-image: url('./assets/images/stars.jpg');
   background-size: cover;
     background-repeat: no-repeat;  */
-/*    background: transparent; */
+	/*    background: transparent; */
 }
 
 .hey {
-  background-image: url('./assets/images/stars.jpg')
+	background-image: url('./assets/images/stars.jpg');
 }
 
 .bg {
-  position: absolute;
-    width: 100%;
-  height: 100%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.info {
+	position: absolute;
+	bottom: 0;
+	left: 0%;
+	color: white;
+	z-index: 1;
 }
