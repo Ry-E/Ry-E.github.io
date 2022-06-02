@@ -1,14 +1,12 @@
+@font-face {
+	font-family: 'techFont';
+	src: url('/assets/fonts/Digital_tech.otf');
+}
+
 html,
 body {
 	margin: 0;
 	padding: 0;
-}
-
-body {
-	/*   background-image: url('Images/stars.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;  */
-	/*   background: green */
 }
 
 canvas {
@@ -40,9 +38,26 @@ canvas {
 }
 
 .info {
+	padding: 1em;
 	position: absolute;
 	bottom: 0;
 	left: 0%;
 	color: white;
+	font-family: 'techFont';
+	letter-spacing: 0.07em;
 	z-index: 1;
+}
+
+.info_content {
+	padding: 0.5em;
+	margin: 0;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	color: aquamarine;
 }
