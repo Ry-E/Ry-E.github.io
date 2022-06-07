@@ -1,10 +1,17 @@
 ## How I worked on this project
-  My goal was to gain a deeper understanding of some core technology while also exploring real work environments
+This project has transformed many times as I have explored programming. Orginally a react app, as react was the first thing I learned, I soon discovered that my small personal website didn't quite justify the tooling react provided. The site now functions as a sort of coding sandbox, where tools and libraries are only used on an as-needed basis.
+
+My goal was to create a simple but interesting portfolio site that also serves as a personal coding sandbox
+![Screen ![Screen Shot 2022-06-07 at 4 12 34 PM](https://user-images.githubusercontent.com/47878230/172475458-9b5e77f4-bc3f-4dfe-8dd6-1b4163946016.png)
+Shot 2022-06-07 at 4 13 26 PM](https://user-images.githubusercontent.com/47878230/172475366-77e8f200-940b-4924-89d8-266cfa56dede.png)
+
+  * 
   
   * I built the http server with vanilla node.js: [Screenshot of server](https://user-images.githubusercontent.com/47878230/141239383-89176f2d-bf70-4beb-aee8-3a437da7b24c.png)  
   * I used vanilla css with media queries to make a responsive website: [Example media query](https://user-images.githubusercontent.com/47878230/141241172-2804ec08-3e69-4c21-8214-ba136f7fd879.png)
   * I worked with tasks on a github project board: [Screenshot of tasks](https://user-images.githubusercontent.com/47878230/141241031-a6405a66-3755-468b-a2a4-44126d6c9f8b.png)
   * I used development and production branches and pull requests: [Example PR](https://user-images.githubusercontent.com/47878230/141242711-78f9830f-e72c-47e6-81e1-1cc625d00d4a.png)
+![viking](https://user-images.githubusercontent.com/47878230/172467918-43aecc1b-f94d-4adb-bb91-a5498ca13fa6.png)
 
 # How to navigate this project
   * The UI is handled with React: [Example code](https://user-images.githubusercontent.com/47878230/141388352-8302acf6-ac1f-4012-92cb-56c02dd7613f.png)
