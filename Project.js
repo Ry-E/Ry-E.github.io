@@ -14,77 +14,77 @@ class Project {
 		} else if (windowWidth < windowHeight) {
 			radius = windowHeight / 10;
 		}
-		mPush();
-		mTranslate(this.project.translateX, 0, this.project.translateZ);
-		mRotateX(this.project.rotateX);
-		mRotateY(this.project.rotateY);
-		mRotateZ(this.project.rotateZ);
-		mRotateY(millis() / 2000);
-		mTexture(this.img);
+		sPush();
+		sTranslate(this.project.translateX, 0, this.project.translateZ);
+		sRotateX(this.project.rotateX);
+		sRotateY(this.project.rotateY);
+		sRotateZ(this.project.rotateZ);
+		sRotateY(millis() / 2000);
+		sTexture(this.img);
 		smooth();
 
 		// Switch statement ready for project customization
 		switch (this.project.id) {
 			default:
-				mSphere(this.project.id, radius, 25);
+				sSphere(this.project.id, radius, 25);
 		}
-		mPop();
+		sPop();
 
 		// Tech moons show the technology used in production
 
 		// Tech Moon 1
-		mPush();
-		mTranslate(this.project.translateTechX, 0, this.project.translateTechZ);
-		mRotateX(this.project.rotateTechX);
-		mRotateZ(this.project.rotateTechZ);
-		mRotateY(-millis() / 2000);
-		mRotateX(millis() / 400);
-		mTranslate(150, 0, 0);
+		sPush();
+		sTranslate(this.project.translateTechX, 0, this.project.translateTechZ);
+		sRotateX(this.project.rotateTechX);
+		sRotateZ(this.project.rotateTechZ);
+		sRotateY(-millis() / 2000);
+		sRotateX(millis() / 400);
+		sTranslate(150, 0, 0);
 		fill(255);
-		mTexture(react_logo);
-		mSphere(this.project.id, 15, 15, 25);
-		mPop();
+		sTexture(react_logo);
+		sSphere(this.project.id, 15, 15, 25);
+		sPop();
 
 		// Tech Moon 2
-		mPush();
-		mTranslate(this.project.translateTechX, 0, this.project.translateTechZ);
-		mRotateX(this.project.rotateTechX);
-		mRotateZ(this.project.rotateTechZ + 200);
-		mRotateY(millis() / 2500);
-		mRotateX(millis() / 400);
-		mTranslate(150, 0, 0);
+		sPush();
+		sTranslate(this.project.translateTechX, 0, this.project.translateTechZ);
+		sRotateX(this.project.rotateTechX);
+		sRotateZ(this.project.rotateTechZ + 200);
+		sRotateY(millis() / 2500);
+		sRotateX(millis() / 400);
+		sTranslate(150, 0, 0);
 		fill(255);
 
 		// Switch statement ready for customizable tech moon
 		switch (this.project.id) {
 			case 1:
-				mTexture(node_logo);
+				sTexture(node_logo);
 				noStroke();
-				mBox(this.project.id, 20, 20, 20);
+				sBox(this.project.id, 20, 20, 20);
 				break;
 			case 2:
 				firebase_logo.resize(600, 30);
-				mTexture(firebase_logo);
+				sTexture(firebase_logo);
 				noStroke();
-				mBox(this.project.id, 20, 20, 20);
+				sBox(this.project.id, 20, 20, 20);
 				break;
 		}
-		mPop();
+		sPop();
 
 		// Title
-		mPush();
-		mTranslate(
+		sPush();
+		sTranslate(
 			this.project.translateTitleX,
 			this.project.translateTitleY,
 			this.project.translateTitleZ
 		);
-		mRotateX(this.project.rotateTitleX);
-		mRotateY(this.project.rotateTitleY);
-		mRotateZ(this.project.rotateTitleZ);
+		sRotateX(this.project.rotateTitleX);
+		sRotateY(this.project.rotateTitleY);
+		sRotateZ(this.project.rotateTitleZ);
 		fill(255);
 		textSize(20);
 		textFont(myFont);
 		text(this.project.name, 0, 0);
-		mPop();
+		sPop();
 	}
 }

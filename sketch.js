@@ -14,9 +14,7 @@ let robinhoodClone;
 let videoPortfolio;
 let developerPortfolio;
 // scrolling behavior
-let d = 0;
 let scroll = 0;
-let count = 0;
 // fonts
 let myFont;
 
@@ -35,28 +33,13 @@ function preload() {
 }
 
 function setup() {
-	mCreateCanvas(windowWidth, windowHeight, WEBGL);
-	mCamera(0, 0, 4500, 0, 0, 0, -0.5, 1, 0);
+	sCreateCanvas(windowWidth, windowHeight, WEBGL);
+	sCamera(0, 0, 4500, 0, 0, 0, -0.5, 1, 0);
 
-	//   var options = {
-	//     preventDefault: true,
-	//   };
-
-	//   let hammer = new Hammer(document.body, options);
-	//   hammer.get("swipe").set({
-	//     direction: Hammer.DIRECTION_ALL,
-	//   });
-
-	// hammer.on("swipeup swipedown", swiped);
-
-	// let backg = canvas.elt.getContext("webgl").texImage2D;
 	sarahLizFitness = new Project(PROJECTS[0], sl_fitness);
-
 	robinhoodClone = new Project(PROJECTS[1], robinhood_clone);
 	videoPortfolio = new Project(PROJECTS[2], v_portfolio);
 	developerPortfolio = new Project(PROJECTS[3], d_portfolio);
-
-	// console.log(backg)
 
 	projects.push(
 		sarahLizFitness,
@@ -64,21 +47,18 @@ function setup() {
 		videoPortfolio,
 		developerPortfolio
 	);
-
-	// let burst = map(speed,0,10,)
-
-	// starG.show()
 }
 
 function draw() {
-	mBackground(0, 0, 200, 10);
-	mReset();
+	sBackground(0, 0, 0, 0);
+	sReset();
 
 	// increases depth of view
 	let eyeZ = height / 2 / tan(PI / 6);
-	mPerspective(PI / 3, width / height, eyeZ / 10, 10000);
+	sPerspective(PI / 3, width / height, eyeZ / 10, 10000);
 
-	mRotateY(scroll);
+	sRotateY(scroll);
+	speed = 1;
 
 	//messing around with lighting
 	// let dirX = (mouseX / width - 0.5) * 2;
@@ -110,66 +90,50 @@ function draw() {
 }
 
 // function mouseWheel(event) {
-//   scroll += event.delta / 480;
-//   console.log(event.delta);
-//   speed = map(event.delta, -50, 50, -40, 40, true);
+// 	scroll += event.delta / 480;
+// 	speed = map(event.delta, -50, 50, -40, 40, true);
+// 	return false;
 // }
 
-function mouseDragged(event) {
-	// print(event.movementY/100)
-	scroll += event.movementY / 480;
-	speed = map(event.movementY, -50, 50, -40, 40, true);
-	// scroll += 0.02
+let preY;
+function touchStarted(event) {
+	preY = event.touches[0].clientY;
 }
 
-// function mousePressed() {
-//   for (let project of projects){
-//     console.log('hello')
-//      if (objectAtMouse() == project.x) fill(0, 200, 0);
-//     }
+function touchMoved(event) {
+	// console.log('event:', event.layerY);
+	let currentY = event.changedTouches[0].clientY;
+	if (preY > currentY) {
+		speed = preY - currentY;
+		console.log('up');
+	} else {
+		speed = preY - currentY;
+		console.log('down');
+	}
+	scroll += (preY - currentY) * 0.0005;
+	preY = currentY;
+	return false;
+}
+
+// function mouseDragged(event) {
+// 	console.log('event:', event);
+// 	// scroll += event.movementY/ * 0.0001;
+// 	// scroll += 0.001;
+// 	console.log('scroll:', scroll);
+// 	speed = event.movementY;
+// 	return false;
 // }
 
-// function mousePressed(){
-//        switch(objectAtMouse()){
-//       case 1:
-//         object.fill(0, 200, 0)
-//         break;
-//     }
-
-// }
-
-// let eventCount = 0;
-// let scrolled = false;
-// let scrollTimeout;
-
-// function mouseWheel(event) {
-//   // print(event)
-//   // print(eventCount++)
-//   event.preventDefault();
-//   if (!scrolled) {
-//     scrolled = true;
-//     if (d == 0) {
-//       count = 0;
-//       if (event.delta > 0) {
-//         event.delta = 1;
-//         d = d + 3;
-//       } else if (event.delta < 0) {
-//         event.delta = -1;
-//         d = d - 3;
-//       }
-//     }
-//   }
-
-//   clearTimeout(scrollTimeout);
-
-//     scrollTimeout = setTimeout(function(){
-//         scrolled = false;
-//     }, 35);
+// function mouseDragged(event) {
+// 	// print(event.movementY/100)
+// 	scroll += event.movementY * 0.001;
+// 	speed = map(event.movementY, -50, 50, -40, 40, true);
+// 	// scroll += 0.02
+// 	return false;
 // }
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
-	// info.position(xOffset, windowHeight - (dHeight + yOffset));
 }
 function mouseClicked() {
 	switch (objectAtMouse()) {
