@@ -12,9 +12,9 @@ class Star {
 		// pz saves the previous z value as z changes
 		this.pz = this.z;
 		// Declare color values
-		this.r = 0;
+		this.r = 255;
 		this.g = 255;
-		this.b = 0;
+		this.b = 255;
 	}
 
 	//   Displays a simple line shape with length based on speed
