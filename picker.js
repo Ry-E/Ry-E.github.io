@@ -150,6 +150,6 @@ function sReset() {
 }
 
 //  objectAtMouse returns the object ID at the current mouse position.
-function objectAtMouse() {
-	return getObjectID(mouseX, mouseY);
+function objectAtPointer(x, y) {
+	return getObjectID(x, y);
 }

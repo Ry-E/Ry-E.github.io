@@ -65,7 +65,6 @@ function draw() {
 	// let dirY = (mouseY / height - 0.5) * 2;
 	// ambientLight(mouseX, mouseY, 255)
 	// directionalLight(250, 0, 250, -dirX, -dirY, -1);
-	// mLights();
 
 	// Adds projects to orbit and
 	//  assign object id based on own index in array
@@ -82,7 +81,7 @@ function draw() {
 	//   sphere((height + width / 4) / 8, 25, 25);
 	//   pop();
 
-	if (objectAtMouse() > 0) {
+	if (objectAtPointer(mouseX, mouseY) > 0) {
 		cursor(HAND);
 	} else {
 		cursor(ARROW);
@@ -95,29 +94,65 @@ function draw() {
 // 	return false;
 // }
 
-let preY;
-function touchStarted(event) {
-	preY = event.touches[0].clientY;
-}
-
-function touchMoved(event) {
-	// console.log('event:', event.layerY);
-	let currentY = event.changedTouches[0].clientY;
-	if (preY > currentY) {
-		speed = preY - currentY;
-		console.log('up');
-	} else {
-		speed = preY - currentY;
-		console.log('down');
+if (window.innerWidth < 1024) {
+	let preY;
+	function touchStarted(event) {
+		preY = event.touches[0].clientY;
 	}
-	scroll += (preY - currentY) * 0.0005;
-	preY = currentY;
-	return false;
+
+	function touchMoved(event) {
+		// console.log('event:', event.layerY);
+		let currentY = event.changedTouches[0].clientY;
+		// if (preY > currentY) {
+		// 	speed = preY - currentY;
+		// 	console.log('up');
+		// } else {
+		// 	speed = preY - currentY;
+		// 	console.log('down');
+		// }
+
+		speed = preY - currentY;
+		scroll += (preY - currentY) * 0.005;
+		preY = currentY;
+		return false;
+	}
+
+	touchEnded = e => {
+		switch (
+			objectAtPointer(
+				e.changedTouches[0].clientX,
+				e.changedTouches[0].clientY
+			)
+		) {
+			case 1:
+				window.open(
+					'https://github.com/Ry-E/SarahLiz-Fitness',
+					'_blank'
+				);
+				break;
+			case 2:
+				window.open('https://github.com/Ry-E/Robinhood', '_blank');
+				break;
+			case 3:
+				window.open(
+					'https://github.com/Ry-E/Videography-Portfolio',
+					'_blank'
+				);
+				break;
+		}
+	};
+} else {
+	mouseWheel = event => {
+		// change orbit scroll speed based on scroll event speed
+		scroll += event.delta / 2400;
+		// map star speed to scroll event speed
+		speed = map(event.delta, -200, 200, -50, 50, true);
+	};
 }
 
 // function mouseDragged(event) {
 // 	console.log('event:', event);
-// 	// scroll += event.movementY/ * 0.0001;
+// 	scroll += event.movementY * 0.0001;
 // 	// scroll += 0.001;
 // 	console.log('scroll:', scroll);
 // 	speed = event.movementY;
@@ -127,7 +162,8 @@ function touchMoved(event) {
 // function mouseDragged(event) {
 // 	// print(event.movementY/100)
 // 	scroll += event.movementY * 0.001;
-// 	speed = map(event.movementY, -50, 50, -40, 40, true);
+// 	speed = event.movementY / 100;
+// 	// speed = map(event.movementY, -50, 50, -40, 40, true);
 // 	// scroll += 0.02
 // 	return false;
 // }
@@ -136,7 +172,7 @@ function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
 }
 function mouseClicked() {
-	switch (objectAtMouse()) {
+	switch (objectAtPointer(mouseX, mouseY)) {
 		case 1:
 			window.open('https://github.com/Ry-E/SarahLiz-Fitness', '_blank');
 			break;
