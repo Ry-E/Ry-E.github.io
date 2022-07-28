@@ -60,12 +60,6 @@ function draw() {
 	sRotateY(scroll);
 	speed = 1;
 
-	//messing around with lighting
-	// let dirX = (mouseX / width - 0.5) * 2;
-	// let dirY = (mouseY / height - 0.5) * 2;
-	// ambientLight(mouseX, mouseY, 255)
-	// directionalLight(250, 0, 250, -dirX, -dirY, -1);
-
 	// Adds projects to orbit and
 	//  assign object id based on own index in array
 	for (let project of projects) {
