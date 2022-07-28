@@ -65,9 +65,9 @@ class Star {
 	}
 
 	changeColor() {
-		this.r = 200;
-		this.g = 230;
-		this.b = 255;
+		this.r = 255;
+		this.g = 100;
+		this.b = 200;
 	}
 	resetColor() {
 		this.r = 255;

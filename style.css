@@ -7,15 +7,11 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+	background: darkslategray;
 }
 
 canvas {
 	position: absolute;
-	/*   
-  background-image: url('Images/stars.jpg');
-  background-size: cover;
-    background-repeat: no-repeat;  */
-	/*    background: transparent; */
 }
 
 .stars {

@@ -14,9 +14,7 @@ let robinhoodClone;
 let videoPortfolio;
 let developerPortfolio;
 // scrolling behavior
-let d = 0;
 let scroll = 0;
-let count = 0;
 // fonts
 let myFont;
 
@@ -35,28 +33,13 @@ function preload() {
 }
 
 function setup() {
-	mCreateCanvas(windowWidth, windowHeight, WEBGL);
-	mCamera(0, 0, 4500, 0, 0, 0, -0.5, 1, 0);
+	sCreateCanvas(windowWidth, windowHeight, WEBGL);
+	sCamera(0, 0, 4500, 0, 0, 0, -0.5, 1, 0);
 
-	//   var options = {
-	//     preventDefault: true,
-	//   };
-
-	//   let hammer = new Hammer(document.body, options);
-	//   hammer.get("swipe").set({
-	//     direction: Hammer.DIRECTION_ALL,
-	//   });
-
-	// hammer.on("swipeup swipedown", swiped);
-
-	// let backg = canvas.elt.getContext("webgl").texImage2D;
 	sarahLizFitness = new Project(PROJECTS[0], sl_fitness);
-
 	robinhoodClone = new Project(PROJECTS[1], robinhood_clone);
 	videoPortfolio = new Project(PROJECTS[2], v_portfolio);
 	developerPortfolio = new Project(PROJECTS[3], d_portfolio);
-
-	// console.log(backg)
 
 	projects.push(
 		sarahLizFitness,
@@ -64,28 +47,18 @@ function setup() {
 		videoPortfolio,
 		developerPortfolio
 	);
-
-	// let burst = map(speed,0,10,)
-
-	// starG.show()
 }
 
 function draw() {
-	mBackground(0, 0, 200, 10);
-	mReset();
+	sBackground(0, 0, 0, 0);
+	sReset();
 
 	// increases depth of view
 	let eyeZ = height / 2 / tan(PI / 6);
-	mPerspective(PI / 3, width / height, eyeZ / 10, 10000);
+	sPerspective(PI / 3, width / height, eyeZ / 10, 10000);
 
-	mRotateY(scroll);
-
-	//messing around with lighting
-	// let dirX = (mouseX / width - 0.5) * 2;
-	// let dirY = (mouseY / height - 0.5) * 2;
-	// ambientLight(mouseX, mouseY, 255)
-	// directionalLight(250, 0, 250, -dirX, -dirY, -1);
-	// mLights();
+	sRotateY(scroll);
+	speed = 1;
 
 	// Adds projects to orbit and
 	//  assign object id based on own index in array
@@ -102,7 +75,7 @@ function draw() {
 	//   sphere((height + width / 4) / 8, 25, 25);
 	//   pop();
 
-	if (objectAtMouse() > 0) {
+	if (objectAtPointer(mouseX, mouseY) > 0) {
 		cursor(HAND);
 	} else {
 		cursor(ARROW);
@@ -110,69 +83,90 @@ function draw() {
 }
 
 // function mouseWheel(event) {
-//   scroll += event.delta / 480;
-//   console.log(event.delta);
-//   speed = map(event.delta, -50, 50, -40, 40, true);
+// 	scroll += event.delta / 480;
+// 	speed = map(event.delta, -50, 50, -40, 40, true);
+// 	return false;
 // }
 
-function mouseDragged(event) {
-	// print(event.movementY/100)
-	scroll += event.movementY / 480;
-	speed = map(event.movementY, -50, 50, -40, 40, true);
-	// scroll += 0.02
+if (window.innerWidth < 1024) {
+	let preY;
+	function touchStarted(event) {
+		preY = event.touches[0].clientY;
+	}
+
+	function touchMoved(event) {
+		// console.log('event:', event.layerY);
+		let currentY = event.changedTouches[0].clientY;
+		// if (preY > currentY) {
+		// 	speed = preY - currentY;
+		// 	console.log('up');
+		// } else {
+		// 	speed = preY - currentY;
+		// 	console.log('down');
+		// }
+
+		speed = preY - currentY;
+		scroll += (preY - currentY) * 0.005;
+		preY = currentY;
+		return false;
+	}
+
+	touchEnded = e => {
+		switch (
+			objectAtPointer(
+				e.changedTouches[0].clientX,
+				e.changedTouches[0].clientY
+			)
+		) {
+			case 1:
+				window.open(
+					'https://github.com/Ry-E/SarahLiz-Fitness',
+					'_blank'
+				);
+				break;
+			case 2:
+				window.open('https://github.com/Ry-E/Robinhood', '_blank');
+				break;
+			case 3:
+				window.open(
+					'https://github.com/Ry-E/Videography-Portfolio',
+					'_blank'
+				);
+				break;
+		}
+	};
+} else {
+	mouseWheel = event => {
+		// change orbit scroll speed based on scroll event speed
+		scroll += event.delta / 2400;
+		// map star speed to scroll event speed
+		speed = map(event.delta, -200, 200, -50, 50, true);
+	};
 }
 
-// function mousePressed() {
-//   for (let project of projects){
-//     console.log('hello')
-//      if (objectAtMouse() == project.x) fill(0, 200, 0);
-//     }
+// function mouseDragged(event) {
+// 	console.log('event:', event);
+// 	scroll += event.movementY * 0.0001;
+// 	// scroll += 0.001;
+// 	console.log('scroll:', scroll);
+// 	speed = event.movementY;
+// 	return false;
 // }
 
-// function mousePressed(){
-//        switch(objectAtMouse()){
-//       case 1:
-//         object.fill(0, 200, 0)
-//         break;
-//     }
-
-// }
-
-// let eventCount = 0;
-// let scrolled = false;
-// let scrollTimeout;
-
-// function mouseWheel(event) {
-//   // print(event)
-//   // print(eventCount++)
-//   event.preventDefault();
-//   if (!scrolled) {
-//     scrolled = true;
-//     if (d == 0) {
-//       count = 0;
-//       if (event.delta > 0) {
-//         event.delta = 1;
-//         d = d + 3;
-//       } else if (event.delta < 0) {
-//         event.delta = -1;
-//         d = d - 3;
-//       }
-//     }
-//   }
-
-//   clearTimeout(scrollTimeout);
-
-//     scrollTimeout = setTimeout(function(){
-//         scrolled = false;
-//     }, 35);
+// function mouseDragged(event) {
+// 	// print(event.movementY/100)
+// 	scroll += event.movementY * 0.001;
+// 	speed = event.movementY / 100;
+// 	// speed = map(event.movementY, -50, 50, -40, 40, true);
+// 	// scroll += 0.02
+// 	return false;
 // }
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
-	// info.position(xOffset, windowHeight - (dHeight + yOffset));
 }
 function mouseClicked() {
-	switch (objectAtMouse()) {
+	switch (objectAtPointer(mouseX, mouseY)) {
 		case 1:
 			window.open('https://github.com/Ry-E/SarahLiz-Fitness', '_blank');
 			break;
