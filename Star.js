@@ -5,8 +5,8 @@ class Star {
 		// Pass in sketch for instance mode
 		this.sketch = sketch;
 		// Give star random x & y values
-		this.x = sketch.random(-sketch.width / 2, sketch.width / 2);
-		this.y = sketch.random(-sketch.height / 2, sketch.height / 2);
+		this.x = sketch.random(-sketch.width, sketch.width);
+		this.y = sketch.random(-sketch.height, sketch.height);
 		// Give star a z value to represent a third dimesion. z is used to offset x and y values
 		this.z = sketch.random(sketch.width);
 		// pz saves the previous z value as z changes
@@ -27,7 +27,7 @@ class Star {
 
 		this.pz = this.z;
 
-		let s = this.sketch.map(this.z, 0, this.sketch.width, 10, 0);
+		let s = this.sketch.map(this.z, 0, this.sketch.width, 5, 0);
 		this.sketch.strokeWeight(s);
 		this.sketch.stroke(this.r, this.g, this.b);
 		this.sketch.strokeCap(this.sketch.ROUND);
@@ -39,26 +39,20 @@ class Star {
 		this.z = this.z - speed;
 		if (this.z < 1) {
 			this.z = this.sketch.width;
-			this.x = this.sketch.random(
-				-this.sketch.width / 2,
-				this.sketch.width / 2
-			);
+			this.x = this.sketch.random(-this.sketch.width, this.sketch.width);
 			this.y = this.sketch.random(
-				-this.sketch.height / 2,
-				this.sketch.height / 2
+				-this.sketch.height,
+				this.sketch.height
 			);
 			this.pz = this.z;
 		}
 		//     Handles reverse
 		if (this.z > this.sketch.width) {
 			this.z = 0;
-			this.x = this.sketch.random(
-				-this.sketch.width / 2,
-				this.sketch.width / 2
-			);
+			this.x = this.sketch.random(-this.sketch.width, this.sketch.width);
 			this.y = this.sketch.random(
-				-this.sketch.height / 2,
-				this.sketch.height / 2
+				-this.sketch.height,
+				this.sketch.height
 			);
 			this.pz = this.z;
 		}

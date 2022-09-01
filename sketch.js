@@ -34,7 +34,8 @@ function preload() {
 
 function setup() {
 	sCreateCanvas(windowWidth, windowHeight, WEBGL);
-	sCamera(0, 0, 4500, 0, 0, 0, -0.5, 1, 0);
+
+	sCamera(0, 0, 4350, 0, 0, 0, -0.5, 1, 0);
 
 	sarahLizFitness = new Project(PROJECTS[0], sl_fitness);
 	robinhoodClone = new Project(PROJECTS[1], robinhood_clone);
@@ -55,10 +56,10 @@ function draw() {
 
 	// increases depth of view
 	let eyeZ = height / 2 / tan(PI / 6);
-	sPerspective(PI / 3, width / height, eyeZ / 10, 10000);
+	sPerspective(PI / 3, width / height, eyeZ / 10, 8500);
 
 	sRotateY(scroll);
-	speed = 1;
+	speed = 2;
 
 	// Adds projects to orbit and
 	//  assign object id based on own index in array
@@ -140,7 +141,8 @@ if (window.innerWidth < 1024) {
 		// change orbit scroll speed based on scroll event speed
 		scroll += event.delta / 2400;
 		// map star speed to scroll event speed
-		speed = map(event.delta, -200, 200, -50, 50, true);
+		speed = map(event.delta, -200, 200, -140, 140, true);
+		console.log(speed);
 	};
 }
 
