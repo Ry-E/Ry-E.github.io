@@ -23,10 +23,6 @@ canvas {
 	/*    background: transparent; */
 }
 
-.hey {
-	background-image: url('./assets/images/stars.jpg');
-}
-
 .bg {
 	position: absolute;
 	width: 100%;
@@ -45,7 +41,7 @@ canvas {
 }
 
 .info_content {
-	padding: 0.5em;
+	padding: 0.25em;
 	margin: 0;
 }
 
